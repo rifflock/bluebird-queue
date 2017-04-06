@@ -192,7 +192,7 @@ BlueBirdQueue.prototype._dequeue = function() {
 
     if(!promises.length) {
       self._working = false;
-      return;
+      return self.onComplete(self._processed);
     }
 
     BlueBird.all(promises).delay(self.delay).spread(function() {
